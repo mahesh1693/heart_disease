@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual Environment
+venv/
+.env
+
+# Model artifacts (optional decision)
+*.joblib
+*.h5
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+
+# VS Code
+.vscode/

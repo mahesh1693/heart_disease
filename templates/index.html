@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heart Disease Predictor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+        <h1>Heart Disease Predictor</h1>
+          <form method="POST">
+            <label>Age: <input type="number" name="age" step="any" required></label><br>
+
+            <label>Sex:</label>
+            <input type="radio" name="sex" value="1" required> Male
+            <input type="radio" name="sex" value="0" required> Female<br>
+
+            <label>Chest Pain Type (cp):</label>
+            <select name="cp" required>
+              <option value="0">Typical Angina</option>
+              <option value="1">Atypical Angina</option>
+              <option value="2">Non-anginal Pain</option>
+              <option value="3">Asymptomatic</option>
+            </select><br>
+
+            <label>Resting Blood Pressure (trestbps): <input type="number" name="trestbps" step="any" required></label><br>
+            <label>Cholesterol (chol): <input type="number" name="chol" step="any" required></label><br>
+
+            <label>Fasting Blood Sugar (fbs):</label>
+            <input type="radio" name="fbs" value="1" required> &gt; 120 mg/dl
+            <input type="radio" name="fbs" value="0" required> ≤ 120 mg/dl<br>
+
+            <label>Rest ECG (restecg):</label>
+            <select name="restecg" required>
+              <option value="0">Normal</option>
+              <option value="1">ST-T Wave Abnormality</option>
+              <option value="2">Left Ventricular Hypertrophy</option>
+            </select><br>
+
+            <label>Max Heart Rate (thalach): <input type="number" name="thalach" step="any" required></label><br>
+
+            <label>Exercise Induced Angina (exang):</label>
+            <input type="radio" name="exang" value="1" required> Yes
+            <input type="radio" name="exang" value="0" required> No<br>
+
+            <label>Oldpeak: <input type="number" name="oldpeak" step="any" required></label><br>
+
+            <label>Slope:</label>
+            <select name="slope" required>
+              <option value="0">Upsloping</option>
+              <option value="1">Flat</option>
+              <option value="2">Downsloping</option>
+            </select><br>
+
+            <label>CA (number of major vessels):</label>
+            <select name="ca" required>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select><br>
+
+            <label>Thal:</label>
+            <select name="thal" required>
+              <option value="1">Normal</option>
+              <option value="2">Fixed Defect</option>
+              <option value="3">Reversible Defect</option>
+            </select><br>
+
+            <button type="submit">Predict</button>
+          </form>
+        {% if prediction is not none %}
+          <h2>Prediction: {{ 'Heart Disease Detcted' if prediction==1 else 'No heart Disease' }}</h2>
+        {% endif %}
+  </body>
+</html>
